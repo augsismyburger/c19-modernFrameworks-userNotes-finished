@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="lib/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/styles.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <div ng-app="NoteApp">
+            <div ng-view></div>
+        </div>
+        
+
+        
+        <script type="text/javascript" src="./lib/node_modules/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="./lib/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="./lib/node_modules/angular/angular.min.js"></script>
+        <script type="text/javascript" src="./lib/node_modules/angular-route/angular-route.min.js"></script>
+        <script type="text/javascript" src="./lib/node_modules/firebase/firebase.js"></script>
+
+        <script type="text/javascript" src="./app/app.js"></script>
+        <script type="text/javascript" src="app/values/appConstants.js"></script>
+        <!--Factories-->
+        <script type="text/javascript" src="./app/factories/authFactory.js"></script>
+        <script type="text/javascript" src="./app/factories/dbFactory.js"></script>
+        <!--Controllers-->
+        <script type="text/javascript" src="./app/controllers/newNoteCtrl.js"></script>
+        <script type="text/javascript" src="./app/controllers/loginCtrl.js"></script>
+        <script type="text/javascript" src="./app/controllers/noteListCtrl.js"></script>
+        <script type="text/javascript" src="./app/controllers/registrationCtrl.js"></script>
+    </body>
+</html>
