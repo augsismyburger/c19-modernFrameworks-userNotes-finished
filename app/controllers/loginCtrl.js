@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('loginCtrl', function($scope, authFactory, $location) {
+app.controller('loginCtrl', function($scope, authFactory, $location, $window) {
 
     $scope.account = {
         email: "",
@@ -12,26 +12,23 @@ app.controller('loginCtrl', function($scope, authFactory, $location) {
 		authFactory.logoutUser()
 		.then(function(data){
 			console.log("logged out?", data);
-			$location.path("/login");
+			// $location.path("/login");
 		}, function(error){
 			console.log("error occured on logout");
 		});
 	};
 
     if(authFactory.isAuthenticated()){
-    $scope.logout();
+    	$scope.logout();
 	}
 
   	$scope.login = () => {
-    	console.log("you clicked login");
-    	authFactory
-	    .loginUser($scope.account)
+    	authFactory.loginUser($scope.account)
 	    .then( () => {
 	        $scope.isLoggedIn = true;
 	        console.log("UserCtrl: user is loggedIn", $scope.isLoggedIn );
-	        $location.path("/notelist");
+			$location.path("/notelist");
+	    	$scope.$apply();
 	    });
 	};
-
-
 });

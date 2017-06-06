@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('newNoteCtrl', function($scope, $location, dbFactory, authFactory) {
+app.controller('newNoteCtrl', function($scope, $location, dbFactory) {
 
     $scope.myNote = {
         task: ""
@@ -9,7 +9,7 @@ app.controller('newNoteCtrl', function($scope, $location, dbFactory, authFactory
     $scope.newNote = () => {
         dbFactory.newNote($scope.myNote)
         .then(() => {
-            $location.path('/notelist');
+            $location.path("/notelist");
         });
     };
 });

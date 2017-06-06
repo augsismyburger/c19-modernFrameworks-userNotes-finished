@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('registrationCtrl', function($scope, $window, authFactory, $location) {
+app.controller('registrationCtrl', function($scope, $location, authFactory) {
 
     $scope.account = {
         email: "",
@@ -28,7 +28,8 @@ app.controller('registrationCtrl', function($scope, $window, authFactory, $locat
 	    .then( () => {
 	        $scope.isLoggedIn = true;
 	        console.log("UserCtrl: user is loggedIn", $scope.isLoggedIn );
-            $location.path("/");
+            $location.path("/notelist");
+	    	$scope.$apply();
 	    });
 	};
 });

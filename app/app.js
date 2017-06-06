@@ -2,6 +2,22 @@
 
 const app = angular.module('NoteApp', ["ngRoute"]);
 
+let isAuth = (authFactory) => 
+    new Promise ((resolve, reject) => {
+        authFactory.isAuthenticated()
+        .then((userExists) => {
+            console.log('user exists', userExists);
+            if (userExists) {
+                console.log('go ahead');
+                resolve();
+            } else {
+                console.log('rejected');
+                reject();
+            }
+    });
+});
+
+
 app.config(function($routeProvider) {
     $routeProvider.
     when('/login', {
@@ -14,11 +30,13 @@ app.config(function($routeProvider) {
     }).
     when('/notelist', {
         templateUrl: 'partials/noteList.html',
-        controller: 'noteListCtrl'
+        controller: 'noteListCtrl',
+        resolve: {isAuth}
     }).
     when('/addnote', {
         templateUrl: 'partials/newNote.html',
-        controller: 'newNoteCtrl'
+        controller: 'newNoteCtrl',
+        resolve: {isAuth}
     }).
     otherwise('/login');
 });

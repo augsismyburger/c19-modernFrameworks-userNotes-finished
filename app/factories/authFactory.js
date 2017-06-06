@@ -1,6 +1,6 @@
 "use strict";
 
-app.factory("authFactory", function(){
+app.factory("authFactory", function($window){
 
 	let currentUser = null;
 
